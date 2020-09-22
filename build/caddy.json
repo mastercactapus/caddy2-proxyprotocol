@@ -1,0 +1,22 @@
+{
+
+	"apps": {
+		"http": {
+			"servers": {
+				"myserver": {
+                    "logs":{},
+                    "listen": [":2020"],
+                    "listener_wrappers":[{"wrapper": "proxyprotocol", "timeout": "0s"},{"wrapper":"tls"}],
+					"routes": [
+						{
+							"handle": [{
+								"handler": "file_server",
+								"root": "/var/www"
+							}]
+						}
+					]
+				}
+			}
+		}
+	}
+}

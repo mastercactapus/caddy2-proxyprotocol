@@ -5,6 +5,7 @@ import (
 	"net"
 	"time"
 
+	"github.com/caddyserver/caddy/v2"
 	"github.com/mastercactapus/proxyprotocol"
 )
 
@@ -46,7 +47,8 @@ func (pp *ProxyProtocolSupport) Validate() error {
 	_, _, err := pp.parse()
 	return err
 }
-func (pp *ProxyProtocolSupport) Provision() error {
+
+func (pp *ProxyProtocolSupport) Provision(ctx caddy.Context) error {
 	timeout, rules, err := pp.parse()
 	if err != nil {
 		return err

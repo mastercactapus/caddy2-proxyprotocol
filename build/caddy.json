@@ -6,7 +6,7 @@
 				"myserver": {
                     "logs":{},
                     "listen": [":2020"],
-                    "listener_wrappers":[{"wrapper": "proxyprotocol", "timeout": "0s"},{"wrapper":"tls"}],
+                    "listener_wrappers":[{"wrapper": "proxy_protocol", "timeout": "0s"},{"wrapper":"tls"}],
 					"routes": [
 						{
 							"handle": [{

@@ -15,7 +15,7 @@
 
 The wrapper needs to be loaded BEFORE the `tls` wrapper.
 
-```json
+```js
 {
   "apps": {
     "http": {

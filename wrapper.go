@@ -10,8 +10,11 @@ import (
 )
 
 type Wrapper struct {
+	// Timeout specifies an optional maximum time for the PROXY header to be received. If zero, timeout is disabled. Default is 5s.
 	Timeout caddy.Duration `json:"timeout,omitempty"`
-	Allow   []string       `json:"allow,omitempty"`
+
+	// Allow is an optional list of CIDR ranges to allow/require PROXY headers from.
+	Allow []string `json:"allow,omitempty"`
 
 	rules []proxyprotocol.Rule
 }

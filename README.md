@@ -33,3 +33,21 @@ The wrapper needs to be loaded BEFORE the `tls` wrapper.
   }
 }
 ```
+
+### Caddyfile
+
+The wrapper may be configured via [global options](https://caddyserver.com/docs/caddyfile/options#listener-wrappers) in the Caddyfile.
+
+```
+{
+  servers {
+    listener_wrappers {
+      proxy_protocol {
+        timeout <duration>
+        allow <cidrs...>
+      }
+      tls
+    }
+  }
+}
+```

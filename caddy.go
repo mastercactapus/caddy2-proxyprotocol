@@ -20,7 +20,6 @@ func (Wrapper) CaddyModule() caddy.ModuleInfo {
 //
 //     proxy_protocol {
 //         timeout <duration>
-//         allow <IPs...>
 //     }
 //
 func (w *Wrapper) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
@@ -41,9 +40,6 @@ func (w *Wrapper) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 					return d.Errf("parsing proxy_protocol timeout duration: %v", err)
 				}
 				w.Timeout = caddy.Duration(dur)
-
-			case "allow":
-				w.Allow = append(w.Allow, d.RemainingArgs()...)
 
 			default:
 				return d.ArgErr()
